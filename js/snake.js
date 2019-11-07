@@ -56,7 +56,7 @@
 
 
     // 蛇移动方法
-    Snake.prototype.move = function () {
+    Snake.prototype.move = function (food, map) {
         // 控制蛇的身体移动，（当前蛇节移到上一个蛇节的位置）
         for (var i = this.body.length - 1; i > 0; i--) {
             this.body[i].x = this.body[i - 1].x;
@@ -79,6 +79,29 @@
                 head.y += 1;
                 break;
         }
+
+
+        // 4.当蛇遇到食物作相应的处理
+        // 判断蛇头是否和食物重合
+        // 蛇头坐标
+        var headX = head.x * this.width;
+        var headY = head.y * this.height;
+        if (headX === food.x && headY === food.y) {
+            // 让蛇增加一节
+            // 获取蛇的最后一节
+            var last = this.body[this.body.length - 1];
+            this.body.push({
+                x: last.x,
+                y: last.y,
+                color: last.color
+
+            })
+            // 随机生成食物
+            food.render(map);
+
+        }
+
+
     }
 
     // 蛇删除方法

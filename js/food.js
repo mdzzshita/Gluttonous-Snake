@@ -44,6 +44,7 @@
     }
 
 
+    // 食物删除
     function remove() {
         for (var i = elements.length - 1; i >= 0; i--) {
             // 删div
