@@ -68,7 +68,7 @@
 
 
 
-// 测试
-var map = document.getElementById('map');
-var food=new Food();
-food.render(map);
+// // 测试
+// var map = document.getElementById('map');
+// var food=new Food();
+// food.render(map);
